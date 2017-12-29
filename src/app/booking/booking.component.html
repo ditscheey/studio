@@ -46,10 +46,12 @@
         </div>
         <div class="row">
           <div class="col s6">
-            <label>Check-in | Check-out [MM.DD.YYYY] </label>
-            <br>
-            <input daterangepicker id="daterange" (selected)="dateSelected($event)" [options]="pickerOptions" type="submit" class="form-control btn btn-success"
-              (cancelDaterangepicker)="calendarCanceled($event)" (applyDaterangepicker)="calendarApplied($event)" />
+              <label>Check-in | Check-out [MM.DD.YYYY] </label>
+              <br>
+              <input daterangepicker id="daterange" (selected)="dateSelected($event)" [options]="pickerOptions" type="submit" class="form-control btn btn-success"
+                          (cancelDaterangepicker)="calendarCanceled($event)" (applyDaterangepicker)="calendarApplied($event)" />
+          <!--  <input daterangepicker id="daterange" (selected)="dateSelected($event)" [options]="pickerOptions" type="submit" class="form-control btn btn-success"
+              (cancelDaterangepicker)="calendarCanceled($event)" (applyDaterangepicker)="calendarApplied($event)" /> -->
           </div>
           <div class="col s6">
             <div>
@@ -68,3 +70,4 @@
       </form>
     </div>
   </div>
+  

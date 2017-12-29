@@ -8,6 +8,10 @@ const nodemailer = require('nodemailer');
 const S = require('string');
 const moment = require('moment');
 const ical2json = require('ical2json');
+const path = require('path');
+const request = require('request');
+const https = require('https');
+const fs = require('fs');
 
 // declare mongojs & connect
 var mongojs = require('mongojs');
@@ -18,9 +22,49 @@ router.get('/',function (req, res){
   res.send('api works');
 });
 
+
+
+router.get('/bnb',function (req, res){
+  var dest     = __dirname + 'bo.ics';
+  var file = fs.createWriteStream(dest);
+  var request = https.get('https://www.airbnb.de/calendar/ical/6713316.ics?s=1c409705409c6f5b9de6118abe596147', function(response) {
+    response.pipe(file);
+    file.on('finish', function() {
+      file.close();  // close() is async, call cb after close completes.
+    });
+  }).on('error', function(err) { // Handle errors
+    fs.unlink(dest); // Delete the file async. (But we don't check the result)
+
+  });
+});
+
+router.get('/download', function(request, response){
+  var file     = "https://www.airbnb.de/calendar/ical/6713316.ics?s=1c409705409c6f5b9de6118abe596147"; 
+
+  var filename = path.basename( file );
+  var ssl      = file.split(':')[0];
+  var dest     = __dirname + 'bo.ics';
+  var stream   = fs.createWriteStream( dest );
+
+  if ( ssl == 'https') {
+      https.get( file, function( resp ) {
+          resp.pipe( stream );
+          response.send('file saved successfully.*');
+      }).on('error', function(e) {
+          response.send("error connecting" + e.message);
+      });
+  } else {
+      http.get( file, function( resp ) {
+          resp.pipe( stream );
+          response.send('file saved successfully.*');
+      }).on('error', function(e) {
+          response.send("error connecting" + e.message);
+      });
+  }
+});
 //Ical 'http://lanyrd.com/topics/nodejs/nodejs.ics'  || airbnb : https://www.airbnb.de/calendar/ical/6713316.ics?s=1c409705409c6f5b9de6118abe596147
 router.get('/ical',function (req, res){
-  ical.fromURL('http://lanyrd.com/topics/nodejs/nodejs.ics',{}, function(err, data) {
+  ical.fromURL('http://www.airbnb.de/calendar/ical/6713316.ics?s=1c409705409c6f5b9de6118abe596147',{}, function(err, data) {
     for (var k in data ){
       if(data.hasOwnProperty(k)){
         var ev = data[k];
@@ -230,7 +274,7 @@ let transporter = nodemailer.createTransport({
 // setup email data with unicode symbols
 let mailOptions = {
     from: '"Nodemailer Contact" <your@email.com>', // sender address
-    to: 'ditscheey@gmail.com', // list of receivers
+    to: 'studiomurnauermoos@gmail.com', // list of receivers
     subject: 'Neue Buchung auf Studio Murnauer Moos', // Subject line
     html: output // html body
 };

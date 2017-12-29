@@ -11,6 +11,7 @@ import * as moment from "moment";
 import { forEach } from "@angular/router/src/utils/collection";
 import { element } from "protractor";
 import { DaterangePickerComponent } from 'ng2-daterangepicker';
+import { Router } from '@angular/router';
 
 declare var jQuery: any;
 declare var check_in: any;
@@ -54,7 +55,8 @@ export class BookingComponent implements OnInit {
     private fb: FormBuilder,
     private _elRef: ElementRef,
     private bookingService: BookingService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
     // Function of Constructor
     this.bookings = this.getBookings();
@@ -88,6 +90,7 @@ export class BookingComponent implements OnInit {
 
   addBooking() {
     this.bookingService.addBooking(this.bForm.value);
+    this.router.navigate(['./info']);
   }
 
   public getBookings() {
@@ -101,7 +104,7 @@ export class BookingComponent implements OnInit {
         autoApply: true,
         minDate: this.date,
         alwaysShowCalendars: true,
-        drops: "down",
+        drops: "up",
         isInvalidDate: date => {
           for (var ii = 0; ii < this.bookings.length; ii++) {
             if (date.format("DD.MM.YYYY") === this.bookings[ii]) {
