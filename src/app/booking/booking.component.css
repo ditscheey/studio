@@ -1,0 +1,41 @@
+.calendar-days{
+    width: 60px;
+    height: 60px;
+    background: lightgrey;
+    border: 3px solid white;
+}
+
+
+#calendar-container {
+    width: 420px;
+
+}
+/* ligthcarol for active elements! */
+
+a.active {
+    background-color: gray;
+}
+
+
+.inactive {
+    opacity: 0.5;
+}
+
+.selected {
+    background-color: peru;
+    opacity: 0.6;
+    
+}
+
+.reserved{
+    background-color: darkgrey;
+}
+
+.today {
+    color:black;
+    background-color: tomato;
+}
+
+.reserved {
+    color: blueviolet;
+}

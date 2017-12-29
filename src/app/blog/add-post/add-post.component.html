@@ -1,0 +1,37 @@
+<div class="row">
+  <form [formGroup]="addPostForm">
+    <div class="row">
+      <div class="input-field">
+        <i class="material-icons prefix">book</i>
+        <input id="title" type="text" formControlName="title" class="validate">
+        <label for="title">Title</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">image</i>
+        <input id="img" type="text" formControlName="image" class="validate">
+        <label for="img">Bild</label>
+      </div>
+    
+      <div class="input-field col s6">
+        <i class="material-icons prefix">lock</i>
+        <input id="password" type="password" formControlName="password" class="validate">
+        <label for="password">Kategorie</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+          <textarea id="textarea1" formControlName="content" class="materialize-textarea"></textarea>
+          <label for="textarea1">Details (optional)</label>
+      </div>
+      <div class="col s6"></div> 
+    </div>
+
+    <div class="center-align">
+
+    </div>
+
+  </form>
+</div>

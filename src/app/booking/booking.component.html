@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="row">
+    <p class="flow-text">Bitte füllen sie zunächst alle notwendigen Felder aus. Achten sie darauf dass in ihrem gewüschten Buchungszeitraum keine
+      Reservierung vorliegt. Datum entweder eintippen oder den grünen Button benutzen. !! Nicht die Felder links neben diesem
+      Text anklicken!!
+    </p>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <form [formGroup]="bForm">
+
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" formControlName="first_name" type="text" class="validate">
+            <label for="first_name">Vorname</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" formControlName="last_name" class="validate">
+            <label for="last_name">Nachname</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" class="validate">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <span style="color:gray">Abreise [DD.MM.YYYY]</span>
+            <input id="dateFrom" formControlName="dateFrom" type="text" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <span style="color:gray">Abreise</span>
+            <input id="dateTo" type="text" formControlName="dateTo" class="validate">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" formControlName="comment" class="materialize-textarea"></textarea>
+            <label for="textarea1">Details (optional)</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s6">
+            <label>Check-in | Check-out [MM.DD.YYYY] </label>
+            <br>
+            <input daterangepicker id="daterange" (selected)="dateSelected($event)" [options]="pickerOptions" type="submit" class="form-control btn btn-success"
+              (cancelDaterangepicker)="calendarCanceled($event)" (applyDaterangepicker)="calendarApplied($event)" />
+          </div>
+          <div class="col s6">
+            <div>
+              <a *ngIf="bForm.valid" class="waves-effect waves-light btn-large" (click)="addBooking()">
+                <i class="material-icons right">add</i>Buchung anfragen</a>
+              <br>
+            </div>
+          </div>
+          <div class="col s6">
+            <h3>belegete Termine:</h3>
+            <div class='row flex-container flex-wrap '>
+              <div class=col *ngFor="let dat of bookings">{{dat}}</div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,32 @@
+<!--navbar!-->
+<nav>
+  <div class="nav-wrapper">
+    <!--normal navbar -->
+    <a class="brand-logo center"> {{title}}</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul  class="left hide-on-med-and-down">
+      <li routerLinkActive="active"><a routerLink="info" > Informationen</a></li>
+      <li routerLinkActive="active"><a routerLink="gallery" >Gallerie</a></li>
+      <li routerLinkActive="active"><a routerLink="booking" >Buchung</a></li>
+    </ul>
+    <ul  class="right hide-on-med-and-down">
+      <li routerLinkActive="active"><a routerLink="posts" >Blog</a></li>
+      <li routerLinkActive="active"><a routerLink="about" >Über mich</a></li>
+    </ul>
+
+    <!--mobile nav -->
+    <ul  id="mobile-demo" class="side-nav">
+      <li routerLinkActive="active"><a routerLink="info" > Informationen</a></li>
+      <li routerLinkActive="active"><a routerLink="gallery" >Gallerie</a></li>
+      <li routerLinkActive="active"><a routerLink="booking" >Buchung</a></li>
+      <li routerLinkActive="active"><a routerLink="posts" >Blog</a></li>
+      <li routerLinkActive="active"><a routerLink="about" >Über mich</a></li>
+    </ul>
+
+  </div>
+</nav>
+<br>
+<div class="container">
+  <!--normal app-->
+  <router-outlet></router-outlet>
+</div>
