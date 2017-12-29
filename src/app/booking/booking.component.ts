@@ -94,7 +94,7 @@ export class BookingComponent implements OnInit {
   }
 
   public getBookings() {
-    this.http.get("http://localhost:3000/api/file").subscribe(data => {
+    this.http.get("http://159.89.19.33/api/file").subscribe(data => {
       this.bookings = data;
       console.log(this.bookings);
       this.pickerOptions = {

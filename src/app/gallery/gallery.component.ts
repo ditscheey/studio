@@ -9,20 +9,20 @@ declare var jQuery:any;
 })
 export class GalleryComponent implements OnInit {
 
-
+// ./../../assets/imgs/1.JPG
   imgs:any = [
-  "./../../assets/imgs/1.JPG",
-  "./../../assets/imgs/2.JPG" ,
-  "./../../assets/imgs/3.JPG" ,
-  "./../../assets/imgs/4.JPG" ,
-  "./../../assets/imgs/5.JPG" ,
-  "./../../assets/imgs/6.JPG" ,
-  "./../../assets/imgs/7.JPG",
-  "./../../assets/imgs/8.JPG" ,
-  "./../../assets/imgs/9.JPG" ,
-  "./../../assets/imgs/10.JPG" ,
-  "./../../assets/imgs/11.JPG" ,
-  "./../../assets/imgs/12.JPG"
+  "http://159.89.19.33/assets/imgs/1.JPG",
+  "http://159.89.19.33/assets/imgs/2.JPG" ,
+  "http://159.89.19.33/assets/imgs/3.JPG" ,
+  "http://159.89.19.33/assets/imgs/4.JPG" ,
+  "http://159.89.19.33/assets/imgs/5.JPG" ,
+  "http://159.89.19.33/assets/imgs/6.JPG" ,
+  "http://159.89.19.33/assets/imgs/7.JPG",
+  "http://159.89.19.33/assets/imgs/8.JPG" ,
+  "http://159.89.19.33/assets/imgs/9.JPG" ,
+  "http://159.89.19.33/assets/imgs/10.JPG" ,
+  "http://159.89.19.33/assets/imgs/11.JPG" ,
+  "http://159.89.19.33/assets/imgs/12.JPG"
   ];
 
   desc:any = [
