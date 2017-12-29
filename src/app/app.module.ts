@@ -31,7 +31,6 @@ import { AuthService } from './auth.service';
 import { Daterangepicker  } from 'ng2-daterangepicker';
 import { EditorComponent } from './blog/editor/editor.component';
 
-import { MarkdownModule } from 'ngx-md';
 // define Routes
 const appRoutes: Routes = [
   { path: 'posts', component: PostComponent },
@@ -70,7 +69,6 @@ const appRoutes: Routes = [
     MatNativeDateModule,
     MatFormFieldModule,
     Daterangepicker,
-    MarkdownModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
